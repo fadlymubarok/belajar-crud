@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div class="container-fluid p-0">
+      <nav class="navbar-light bg-light p-3 d-flex gap-5">
+        <h1 class="fs-2">CRUD mahasiswa</h1>
+
+        <div class="btn-group gap-2">
+          <button type="button" class="btn btn-link" @click="ChangePage('mahasiswa-page')">Data mahasiswa</button>
+          <button type="button" class="btn btn-link" @click="ChangePage('akun-page')">Data akun</button>
+        </div>
+      </nav>
+
+      <div class="container">
+        <component :is="activePage"></component>
+      </div>
+
+    </div>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MahasiswaPage from '@/pages/MahasiswaPage.vue'
+import AkunPage from '@/pages/AkunPage.vue'
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      activePage: 'mahasiswa-page'
+    }
+  },
   components: {
-    HelloWorld
+    MahasiswaPage, AkunPage
+  },
+  methods: {
+    ChangePage: function (page) {
+      this.activePage = page
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import '~bootstrap/dist/css/bootstrap.css';
 </style>
