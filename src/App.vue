@@ -18,8 +18,8 @@
   </div>
 </template>
 <script>
-import MahasiswaPage from '@/pages/MahasiswaPage.vue'
-import AkunPage from '@/pages/AkunPage.vue'
+import MahasiswaPage from '@/pages/Mahasiswa/Index.vue'
+import AkunPage from '@/pages/Akun/Index.vue'
 
 export default {
   data() {
